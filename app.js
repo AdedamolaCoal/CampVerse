@@ -39,9 +39,12 @@ db.once("open", () => {
 });
 // *************MONGOOSE END*****************
 
-app.listen(3040, () => {
-  console.log("Listening on port 3040...");
+// *************APP LISTEN*****************
+const port = process.env.PORT || 3040;
+app.listen(port, () => {
+  console.log(`Listening on port ${port}...`);
 });
+// *************APP LISTEN END*****************
 
 // *************APP SETS/USES*****************
 app.engine("ejs", engine);
