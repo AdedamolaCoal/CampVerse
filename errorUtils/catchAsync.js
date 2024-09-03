@@ -4,7 +4,7 @@ module.exports = (func) => {
   };
 };
 
-// or (traditional way)
+// or alternative (traditional way)
 
 // function catchAsync(fn) {
 //     return function (req, res, next) {

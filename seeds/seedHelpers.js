@@ -1,3 +1,4 @@
+// data to generate campground name combinations
 module.exports.descriptors = [
   "Forest",
   "Ancient",

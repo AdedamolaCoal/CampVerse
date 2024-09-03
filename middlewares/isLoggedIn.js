@@ -1,3 +1,4 @@
+// Middleware to validate that a user is logged in before performing an action
 const isLoggedIn = (req, res, next) => {
   if (!req.isAuthenticated()) {
     req.session.returnTo = req.originalUrl;

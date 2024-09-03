@@ -94,6 +94,7 @@ app.use(
         "data:",
         "https://res.cloudinary.com/dhv3cnr1o/", // should always match my cloudinary account or any of use!
         "https://images.unsplash.com/",
+        "https://static.vecteezy.com/",
         "https://api.maptiler.com/",
       ],
       fontSrc: ["'self'", ...fontSrcUrls],

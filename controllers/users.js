@@ -39,4 +39,4 @@ module.exports.logoutUser = (req, res, next) => {
     req.flash("success", "Goodbye!");
     res.redirect("/");
   });
-}; // Logout route for Users
+}; // Logout route for session Users

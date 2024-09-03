@@ -4,7 +4,7 @@ const passport = require("passport");
 const catchAsync = require("../errorUtils/catchAsync");
 // const storeReturnTo = require("../middleware.js");
 
-// CONTROLLERS
+// CONTROLLERS FOR USERS
 const users = require("../controllers/users");
 
 router

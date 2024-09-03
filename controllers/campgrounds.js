@@ -12,7 +12,7 @@ module.exports.newForm = (req, res) => {
   res.render("campgrounds/new");
 }; // New campground route
 
-// ##################################---CREATE ROUTE---#############################################
+// ##################################---CREATE ROUTE---############################################
 
 module.exports.create = async (req, res) => {
   const geoData = await maptilerClient.geocoding.forward(

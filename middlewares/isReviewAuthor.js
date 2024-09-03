@@ -1,3 +1,4 @@
+// Middleware to validate the author of the review for edit
 const Campground = require("../models/campground");
 const Review = require("../models/review");
 

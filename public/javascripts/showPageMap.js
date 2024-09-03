@@ -1,3 +1,4 @@
+// to be able to view maptiler map on the show page
 maptilersdk.config.apiKey = maptilerApiKey;
 
 const map = new maptilersdk.Map({

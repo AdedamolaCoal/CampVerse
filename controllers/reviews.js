@@ -11,7 +11,7 @@ module.exports.create = async (req, res) => {
   await campground.save();
   req.flash("success", "Review Created Successfully.");
   res.redirect(`/campgrounds/${campground._id}`);
-}; // Create route for Reviews
+}; // Create route for camper's Reviews
 
 module.exports.delete = async (req, res) => {
   const { id, reviewId } = req.params;

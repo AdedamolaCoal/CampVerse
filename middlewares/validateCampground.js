@@ -1,3 +1,4 @@
+// Middleware to validate new campgrounds data tallies with the schema
 const ExpressError = require("../errorUtils/ExpressError.js");
 const { campgroundSchema } = require("../schemas.js");
 

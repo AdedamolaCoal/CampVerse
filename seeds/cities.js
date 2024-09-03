@@ -1,3 +1,5 @@
+// data to generate a database of cities
+
 module.exports = [
   {
     city: "New York",

@@ -1,3 +1,4 @@
+// MapTiler necessary datas gotten from maptiler docs
 maptilersdk.config.apiKey = maptilerApiKey;
 
 const map = new maptilersdk.Map({

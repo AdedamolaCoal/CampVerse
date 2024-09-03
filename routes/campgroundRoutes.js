@@ -2,7 +2,7 @@
 const express = require("express");
 // ROUTER
 const router = express.Router();
-// MODELS
+// MODELS FOR CAMPGROUNDS
 const Campground = require("../models/campground");
 // ERROR VALIDATION FOR CAMPGROUNDS
 const catchAsync = require("../errorUtils/catchAsync.js");

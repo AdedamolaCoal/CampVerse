@@ -51,7 +51,7 @@ CampgroundSchema.virtual("properties.popUpMarkup").get(function () {
   <p>${this.description.substring(0, 20)}...</p>`;
 });
 
-// DELETE MIDDLEWARE THAT DELETES ALL THE REVIEW TIED WITH A FARM WHEN A FARM IS DELETED
+// DELETE MIDDLEWARE for deleting all reviews that have an id that is in the camp.reviews array
 CampgroundSchema.post("findOneAndDelete", async function (camp) {
   // if (camp.reviews.length) {
   // const res = await review.deleteMany({ _id: { $in: camp.reviews } }); // delete all reviews that have an id that is in the camp.reviews array

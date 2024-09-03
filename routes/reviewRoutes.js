@@ -7,7 +7,7 @@ const validateReview = require("../middlewares/validateReview.js");
 // MIDDLEWARE FOR AUTHENTICATION
 const isLoggedIn = require("../middlewares/isLoggedIn");
 const isReviewAuthor = require("../middlewares/isReviewAuthor");
-// CONTROLLERS
+// CONTROLLERS FOR REVIEWS
 const reviews = require("../controllers/reviews");
 
 router.post("/", isLoggedIn, validateReview, catchAsync(reviews.create));

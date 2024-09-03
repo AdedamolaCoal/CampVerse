@@ -1,3 +1,4 @@
+// Middleware to validate that the review data tallies with the schema
 const ExpressError = require("../errorUtils/ExpressError.js");
 const { reviewSchema } = require("../schemas.js");
 
