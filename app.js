@@ -29,7 +29,7 @@ const User = require("./models/user.js");
 
 // *************MONGOOSE START*****************
 // const dbUrl = process.env.DB_URL // for when in production
-const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/yelpcamp"; // for development
+const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/campverse"; // for development
 mongoose.connect(dbUrl);
 
 const db = mongoose.connection;

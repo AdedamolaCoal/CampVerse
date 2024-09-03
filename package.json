@@ -1,13 +1,13 @@
 {
-  "name": "yelpcamp",
+  "name": "campverse",
   "version": "1.0.0",
-  "description": "A project on campgrounds to solidify full-stack knowledge I've been learning on Udemy.",
+  "description": "My ALX chosen foundations project, which is based on a full-stack web application.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
-  "author": "kanni coal",
+  "author": "adedamola coal",
   "license": "ISC",
   "dependencies": {
     "@maptiler/client": "^1.8.1",
