@@ -26,6 +26,8 @@ const flash = require("connect-flash");
 const { rmSync } = require("fs");
 // MODELS
 const User = require("./models/user.js");
+// PORT
+const appPort = 3000;
 
 // *************MONGOOSE START*****************
 // const dbUrl = process.env.DB_URL // for when in production
@@ -40,7 +42,7 @@ db.once("open", () => {
 // *************MONGOOSE END*****************
 
 // *************APP LISTEN*****************
-const port = process.env.PORT || 3040;
+const port = process.env.PORT || appPort;
 app.listen(port, () => {
   console.log(`Listening on port ${port}...`);
 });
