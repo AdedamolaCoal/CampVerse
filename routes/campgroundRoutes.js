@@ -1,18 +1,24 @@
 // EXPRESS
 const express = require("express");
+
 // ROUTER
 const router = express.Router();
+
 // MODELS FOR CAMPGROUNDS
 const Campground = require("../models/campground");
+
 // ERROR VALIDATION FOR CAMPGROUNDS
 const catchAsync = require("../errorUtils/catchAsync.js");
 const ExpressError = require("../errorUtils/ExpressError.js");
+
 // MIDDLEWARE VALIDATIONS FOR AUTHENTICATION
 const validateCampground = require("../middlewares/validateCampground.js");
 const isLoggedIn = require("../middlewares/isLoggedIn");
 const isAuthor = require("../middlewares/isAuthor");
+
 // CONTROLLERS
 const campgrounds = require("../controllers/campgrounds");
+
 // FILE CONTROL/UPLOAD
 const { storage } = require("../cloudinary/index");
 const multer = require("multer");

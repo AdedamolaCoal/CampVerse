@@ -129,10 +129,10 @@ store.on("error", function (e) {
 
 const sessionConfig = {
   store,
-  name: "campverse",
+  name: "intercom",
   secret,
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   cookie: {
     httpOnly: true,
     // secure: true,
@@ -155,7 +155,7 @@ passport.deserializeUser(User.deserializeUser()); // how users are un-stored fro
 // NOTIFICATION(FLASH PKG) MIDDLEWARE GLOBAL (LOCAL) VARIABLES
 
 app.use((req, res, next) => {
-  // console.log(req.query);
+  console.log(req.user);
   res.locals.currentUser = req.user;
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
