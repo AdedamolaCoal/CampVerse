@@ -36,8 +36,8 @@ const User = require("./models/user.js");
 const appPort = 8080;
 
 // *************MONGOOSE START*****************
-// for production
-const dbUrl = process.env.DB_URL; // || "mongodb://localhost:27017/campverse"; // for development
+// mongo db connection
+const dbUrl = process.env.DB_URL;
 mongoose.connect(dbUrl);
 
 const db = mongoose.connection;
@@ -57,9 +57,12 @@ app.listen(port, () => {
 // *************APP SETS/USES*****************
 app.engine("ejs", engine);
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views")); // path.join allows the access of whats in the specified folder from anywhere within the code.
 
-app.use(express.static(path.join(__dirname, "public"))); //path to serve static files from. E.g: clientSideValidation.js to serve what the name implies.
+// path.join allows the access of whats in the specified folder from anywhere within the code.
+app.set("views", path.join(__dirname, "views"));
+
+//path to serve static files from. E.g: clientSideValidation.js to serve what the name implies.
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(flash());
@@ -101,7 +104,7 @@ app.use(
         "'self'",
         "blob:",
         "data:",
-        "https://res.cloudinary.com/dhv3cnr1o/", // should always match my cloudinary account or any of use!
+        "https://res.cloudinary.com/dhv3cnr1o/",
         "https://images.unsplash.com/",
         "https://static.vecteezy.com/",
         "https://api.maptiler.com/",
@@ -136,8 +139,8 @@ const sessionConfig = {
   saveUninitialized: false,
   cookie: {
     httpOnly: true,
-    // secure: true,
-    expires: Date.now() + 1000 * 60 * 60 * 24 * 7, // 1000=milliseconds, 60=seconds, 60=minutes, 24=hours 7=days
+    // 1000=milliseconds, 60=seconds, 60=minutes, 24=hours 7=days
+    expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
     maxAge: 1000 * 60 * 60 * 24 * 7, //
   },
 };
@@ -147,9 +150,14 @@ app.use(session(sessionConfig));
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(new LocalStrategy(User.authenticate())); // this will authenticate users.
-passport.serializeUser(User.serializeUser()); // how users are stored in a session to remain logged in.
-passport.deserializeUser(User.deserializeUser()); // how users are un-stored from a session and are logged out.
+// this will authenticate users.
+passport.use(new LocalStrategy(User.authenticate()));
+
+// how users are stored in a session to remain logged in.
+passport.serializeUser(User.serializeUser());
+
+// how users are un-stored from a session and are logged out.
+passport.deserializeUser(User.deserializeUser());
 
 // *************SESSIONS AND PASSPORTS END****************
 
@@ -163,8 +171,9 @@ app.use((req, res, next) => {
   next();
 });
 
-// HOME PAGE
+// *************ROUTES****************
 
+// HOME PAGE
 app.get("/", (req, res) => {
   res.render("home");
 });
@@ -178,7 +187,7 @@ app.use("/campgrounds", campgroundRoutes);
 // REVIEW ROUTES
 app.use("/campgrounds/:id/reviews", reviewRoutes);
 
-// WILDCARD ROUTE
+// WILDCARD ROUTE FOR NON-EXISTING ROUTES
 app.all("*", (req, res, next) => {
   next(new ExpressError("Page Not Found", 404));
 });
