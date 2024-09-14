@@ -1,4 +1,4 @@
-// Middleware to validate the author of the campground for edit
+// Middleware to give edit permission to a campgrounds author
 const Campground = require("../models/campground");
 
 const isAuthor = async (req, res, next) => {
