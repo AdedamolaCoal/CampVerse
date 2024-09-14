@@ -83,7 +83,9 @@ Please ensure your code follows the existing style guidelines and includes appro
 ## Author:
 
 Linkedin: https://www.linkedin.com/in/damola-akinyomi-a96828243/
+
 Github: https://github.com/AdedamolaCoal
+
 X: kan_coal
 
 
