@@ -1,9 +1,11 @@
 const User = require("../models/user");
 
+// Register route for Users
 module.exports.registerForm = (req, res) => {
   res.render("users/register");
-}; // Register route for Users
+};
 
+// Create route for Users
 module.exports.createUser = async (req, res, next) => {
   try {
     const { username, email, password } = req.body;
@@ -22,21 +24,24 @@ module.exports.createUser = async (req, res, next) => {
     }
     res.redirect("/register");
   }
-}; // Create route for Users
+};
 
+// Login route for Users
 module.exports.loginForm = (req, res) => {
   res.render("users/login");
-}; // Login route for Users
+};
 
+// Login auth for users
 module.exports.loginUser = (req, res) => {
   req.flash("success", "Welcome Back!");
   res.redirect("/campgrounds/allcamps");
-}; // Login auth for users
+};
 
+// Logout route for session Users
 module.exports.logoutUser = (req, res, next) => {
   req.logout((err) => {
     if (err) return next(err);
     req.flash("success", "Goodbye!");
     res.redirect("/");
   });
-}; // Logout route for session Users
+};

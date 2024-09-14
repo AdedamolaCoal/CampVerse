@@ -24,7 +24,11 @@ module.exports.create = async (req, res) => {
   campground.images = req.files.map((f) => ({
     url: f.path,
     filename: f.filename,
-  })); // req.files is an array of files uploaded thanks to MULTER and we map over it here so we can save the path and filename to the db as url and filename like we've set it in our schema/model.
+  }));
+  /** req.files is an array of files uploaded
+   *  thanks to MULTER, we map over it here so
+   *  the path and filename can be saved to the db
+   *  as url and filename like we've set it in our schema/model. */
   campground.author = req.user._id;
   await campground.save();
   console.log(campground);
@@ -33,6 +37,7 @@ module.exports.create = async (req, res) => {
 };
 // ###############################################################################
 
+// Show route
 module.exports.show = async (req, res) => {
   const campground = await Campground.findById(req.params.id)
     .populate({ path: "reviews", populate: { path: "author" } })
@@ -42,8 +47,9 @@ module.exports.show = async (req, res) => {
     return res.redirect("/campgrounds/allcamps");
   }
   res.render("campgrounds/show", { campground });
-}; // Show route
+};
 
+// Edit route
 module.exports.edit = async (req, res) => {
   const campground = await Campground.findById(req.params.id);
   if (!campground) {
@@ -51,8 +57,9 @@ module.exports.edit = async (req, res) => {
     return res.redirect("/campgrounds/allcamps");
   }
   res.render("campgrounds/edit", { campground });
-}; // Edit route
+};
 
+// Update route
 module.exports.update = async (req, res) => {
   console.log(req.body);
   const campground = await Campground.findByIdAndUpdate(req.params.id, {
@@ -80,10 +87,11 @@ module.exports.update = async (req, res) => {
   }
   req.flash("success", "Campground Updated Successfully.");
   res.redirect(`/campgrounds/${campground._id}`);
-}; // Update route
+};
 
+// Delete route
 module.exports.delete = async (req, res) => {
   const deleteCamp = await Campground.findByIdAndDelete(req.params.id);
   req.flash("success", "Campground Deleted Successfully.");
   res.redirect("/campgrounds/allcamps");
-}; // Delete route
+};
