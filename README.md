@@ -86,7 +86,7 @@ Linkedin: https://www.linkedin.com/in/damola-akinyomi-a96828243/
 
 Github: https://github.com/AdedamolaCoal
 
-X: kan_coal
+X: https://x.com/kan_coal
 
 
 ## License
