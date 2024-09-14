@@ -67,24 +67,25 @@ app.use(flash());
 // *************Helmet Validations for content srcs*****************
 app.use(helmet());
 
+// allowed script links
 const scriptSrcUrls = [
   "https://stackpath.bootstrapcdn.com/",
   "https://kit.fontawesome.com/",
   "https://cdnjs.cloudflare.com/",
   "https://cdn.jsdelivr.net",
-  "https://cdn.maptiler.com/", // add this
+  "https://cdn.maptiler.com/",
 ];
+
+// allowed style links
 const styleSrcUrls = [
   "https://kit-free.fontawesome.com/",
   "https://stackpath.bootstrapcdn.com/",
   "https://fonts.googleapis.com/",
   "https://use.fontawesome.com/",
   "https://cdn.jsdelivr.net",
-  "https://cdn.maptiler.com/", // add this
+  "https://cdn.maptiler.com/",
 ];
-const connectSrcUrls = [
-  "https://api.maptiler.com/", // add this
-];
+const connectSrcUrls = ["https://api.maptiler.com/"];
 
 const fontSrcUrls = [];
 app.use(

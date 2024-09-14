@@ -2,8 +2,9 @@ const Campground = require("../models/campground");
 const { places, descriptors } = require("./seedHelpers");
 const cities = require("./cities");
 const mongoose = require("mongoose");
+const dbUrl = process.env.DB_URL;
 
-mongoose.connect("mongodb://localhost:27017/campverse");
+mongoose.connect(dbUrl); //"mongodb://localhost:27017/campverse"
 
 const conn = mongoose.connection;
 conn.on("error", console.error.bind(console, "connection error:"));
@@ -15,7 +16,7 @@ const sample = (array) => array[Math.floor(Math.random() * array.length)];
 
 const seedDB = async () => {
   await Campground.deleteMany({}); // deletes previous db data
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 15; i++) {
     const random1000 = Math.floor(Math.random() * 1000);
     const camp = new Campground({
       // author = user id

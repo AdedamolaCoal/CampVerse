@@ -32,6 +32,7 @@
       </button>
       <% } %>
     </div>
+
     <div class="card mb-3">
       <div class="card-body">
         <h5 class="card-title"><%= campground.title %></h5>
@@ -46,6 +47,8 @@
         </li>
         <% } %>
       </ul>
+
+      <!-- checks if the current user is the author of the campground to give edit permissions -->
       <% if (currentUser && campground.author.equals(currentUser._id)) { %>
       <div class="card-body">
         <a
